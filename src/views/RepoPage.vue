@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>A single Repo will be Displayed here...</h1>
+        <h1>List of all my github Repositories</h1>
         <router-link to="/">Home</router-link>
     </div>
 </template>
