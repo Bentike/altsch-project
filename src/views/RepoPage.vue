@@ -3,16 +3,18 @@
     <h1>List of all my github Repositories</h1>
     <router-link to="/">Home</router-link>
     <div class="repo-wrap">
-    <div v-for="repo in repos" :key="repo.id">
-      <div class="card">
-        <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
-        <p><span class="title">Url:</span> {{ repo.url }}</p>
-        <p><span class="title">Name:</span> {{ repo.name }}</p>
-        <p><span class="title">ID:</span> {{ repo.id }}</p>
-        <p><span class="title">Default Branch:</span> {{ repo.default_branch }}</p>
+      <div v-for="repo in repos" :key="repo.id">
+        <div class="card">
+          <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
+          <p><span class="title">Url:</span> {{ repo.url }}</p>
+          <p><span class="title">Name:</span> {{ repo.name }}</p>
+          <p><span class="title">ID:</span> {{ repo.id }}</p>
+          <p>
+            <span class="title">Default Branch:</span> {{ repo.default_branch }}
+          </p>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
