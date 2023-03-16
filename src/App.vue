@@ -1,17 +1,13 @@
 <template>
-  <AllRepos/>
-  <HelloCard name="Bentike"/>
+  <router-view></router-view>
 </template>
 
 <script>
-import AllRepos from './components/AllRepos.vue';
-import HelloCard from './components/HelloCard.vue'
 
 export default {
   name: 'App',
   components: {
-    AllRepos,
-    HelloCard
+   
   }
 }
 </script>
