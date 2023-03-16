@@ -1,17 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome To My Alt School Final Project"/>
+  <AllRepos/>
   <HelloCard name="Bentike"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AllRepos from './components/AllRepos.vue';
 import HelloCard from './components/HelloCard.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    AllRepos,
     HelloCard
   }
 }
