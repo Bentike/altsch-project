@@ -12,7 +12,7 @@ export default {
   props: ['repository'],
   methods: {
     saveRepoToLocalStorage (rep) {
-        console.log(rep);
+      localStorage.setItem('repoName', JSON.stringify(rep));
     }
   }
 };
