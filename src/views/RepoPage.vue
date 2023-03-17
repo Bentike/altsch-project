@@ -5,7 +5,7 @@
     <div class="repo-wrap">
       <div v-for="repo in repos" :key="repo.id">
         <HelloCard>
-          <p><span class="title">Fullname:</span> {{ repo.full_Name }}</p>
+          <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
           <p><span class="title">Url:</span> {{ repo.url }}</p>
           <p><span class="title">Name:</span> {{ repo.name }}</p>
           <p><span class="title">ID:</span> {{ repo.id }}</p>
