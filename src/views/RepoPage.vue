@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style>
+<!-- <style>
 .repo-wrap {
   display: flex;
   flex-direction: row;
@@ -65,4 +65,4 @@ export default {
 p {
   color: #fff;
 }
-</style>
+</style> -->
