@@ -1,6 +1,8 @@
 <template>
   <div class="card">
-     <slot/>
+    <router-link to="/myrepo">
+      <slot/>
+    </router-link>
   </div>
 </template>
 
