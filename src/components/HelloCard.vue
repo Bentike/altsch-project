@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="saveRepoToLocalStorage(repository)">
+  <div class="card" @mouseenter="() => saveRepoToLocalStorage(repository)">
     <router-link to="/myrepo">
       <slot/>
     </router-link>
