@@ -1,4 +1,24 @@
 <template>
+
+<!-- code to store item in localStorage
+localStorage.setItem('repoName', JSON.stringify(prop)); -->
+
+<!-- 
+ gets repoName from local storage
+   const getRepoName = () => {
+    return JSON.parse(localStorage.getItem('repoName'));
+  } -->
+
+  <!-- fetch Single User Repo -->
+  <!-- useEffect(() => {
+        fetch(`https://api.github.com/repos/Bentike/${getRepoName()}`)
+             .then(res => res.json())
+             .then(data => {
+                setRepo(data);
+                setOwner(data.owner);
+            });
+    }, []); -->
+
   <div>
     <h1>List of all my github Repositories</h1>
     <router-link to="/">Home</router-link>

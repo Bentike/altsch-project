@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="getRepo(repository)">
+  <div class="card" @click="saveRepoToLocalStorage(repository)">
     <router-link to="/myrepo">
       <slot/>
     </router-link>
@@ -11,7 +11,7 @@ export default {
   name: "HelloCard",
   props: ['repository'],
   methods: {
-    getRepo (rep) {
+    saveRepoToLocalStorage (rep) {
         console.log(rep);
     }
   }
