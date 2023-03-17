@@ -9,6 +9,5 @@
 <script>
 export default {
   name: "HelloCard",
-  props: ["fullname", "url", "name", "id", "branch"]
 };
 </script>
