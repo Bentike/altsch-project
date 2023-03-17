@@ -4,13 +4,16 @@
     <router-link to="/">Home</router-link>
     <div class="repo-wrap">
       <div v-for="repo in repos" :key="repo.id">
-        <HelloCard>
-          <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
-          <p><span class="title">Url:</span> {{ repo.url }}</p>
-          <p><span class="title">Name:</span> {{ repo.name }}</p>
-          <p><span class="title">ID:</span> {{ repo.id }}</p>
-          <p><span class="title">Default Branch:</span> {{ repo.default_branch }}</p>
-        </HelloCard>
+          <HelloCard v-bind:repository="repo.name">
+            <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
+            <p><span class="title">Url:</span> {{ repo.url }}</p>
+            <p><span class="title">Name:</span> {{ repo.name }}</p>
+            <p><span class="title">ID:</span> {{ repo.id }}</p>
+            <p>
+              <span class="title">Default Branch:</span>
+              {{ repo.default_branch }}
+            </p>
+          </HelloCard>
       </div>
     </div>
   </div>
@@ -24,6 +27,7 @@ export default {
   data() {
     return {
       repos: [],
+      name: "Alabama"
     };
   },
   methods: {},
