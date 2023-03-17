@@ -1,10 +1,6 @@
 <template>
   <div class="card">
-     <p><span class="title">Fullname:</span> {{ fullname }}</p>
-     <p><span class="title">Url:</span> {{ url }}</p>
-     <p><span class="title">Name:</span> {{ name }}</p>
-     <p><span class="title">ID:</span> {{ id }}</p>
-     <p><span class="title">Default Branch:</span> {{ branch }}</p>
+     <slot/>
   </div>
 </template>
 
