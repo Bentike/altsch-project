@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Welcome to the GitHub Repositories App.</h1>
-    <router-link to="/repo">Repos</router-link>
+    <router-link to="/repo">Click to view all my Repositories</router-link>
   </div>
 </template>
 
