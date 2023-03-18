@@ -52,7 +52,7 @@ export default {
 }
 .card {
   width: 500px;
-  margin: 20px;
+  margin: 50px 20px;
   border-radius: 15px;
   background-color: red;
   padding: 20px;
