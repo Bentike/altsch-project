@@ -2,6 +2,8 @@
   <div class="single">
     <h1>A single repo will show here</h1>
     <HelloCard>
+      <img v-bind:src="owner.avatar_url" alt="owner"/>
+      <p><span class="title">Owner:</span> {{ owner.login }}</p>
       <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
       <p><span class="title">Url:</span> {{ repo.url }}</p>
       <p><span class="title">Name:</span> {{ repo.name }}</p>
@@ -26,6 +28,7 @@ export default {
   data() {
     return {
       repo: {},
+      owner: {}
     };
   },
 
@@ -38,7 +41,11 @@ export default {
   beforeMount() {
     fetch(`https://api.github.com/repos/Bentike/${this.getRepoName()}`)
       .then((res) => res.json())
-      .then((data) => (this.repo = data))
+      .then((data) => {
+        this.repo = data;
+        this.owner = data.owner;
+        console.log(this.owner);
+      })
       .catch((err) => console.log('an error occur ' + err));
   },
 };
