@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "@/views/HomePage.vue";
 import RepoPage from "@/views/RepoPage.vue";
 import SingleRepo from "@/views/SingleRepo";
+import NotFound from "@/views/NotFound";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,6 +23,11 @@ const router = createRouter({
       path: "/myrepo",
       name: "SingleRepo",
       component: SingleRepo,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "NotFound",
+      component: NotFound,
     },
   ],
 });
