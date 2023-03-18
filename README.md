@@ -22,4 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Live link to project
+[Link to project](https://vue-project-altsch.netlify.app/).
 # altsch-project
