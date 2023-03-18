@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="single">
     <h1>A single repo will show here</h1>
     <HelloCard>
       <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
@@ -43,3 +43,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.single{
+  width: 50%;
+  margin: 0 auto;
+}
+</style>
