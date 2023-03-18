@@ -55,8 +55,9 @@ export default {
       .then((res) => res.json())
       .then((data) => {
         this.repos = data;
-      });
-  },
+      })
+      .catch(err => console.log('an error occur ' + err));
+  }
 };
 </script>
 

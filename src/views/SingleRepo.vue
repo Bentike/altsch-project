@@ -39,7 +39,7 @@ export default {
     fetch(`https://api.github.com/repos/Bentike/${this.getRepoName()}`)
       .then((res) => res.json())
       .then((data) => (this.repo = data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log('an error occur ' + err));
   },
 };
 </script>
