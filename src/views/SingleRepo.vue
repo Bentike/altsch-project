@@ -2,7 +2,7 @@
   <div class="single">
     <h1>A single repo will show here</h1>
     <HelloCard>
-      <img v-bind:src="owner.avatar_url" alt="owner"/>
+      <img v-bind:src="owner.avatar_url" alt="owner" class="owner-img"/>
       <p><span class="title">Owner:</span> {{ owner.login }}</p>
       <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
       <p><span class="title">Url:</span> {{ repo.url }}</p>
@@ -55,5 +55,9 @@ export default {
 .single{
   width: 50%;
   margin: 0 auto;
+}
+.owner-img{
+  width: 200px;
+  height: 200px;
 }
 </style>
