@@ -24,5 +24,5 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Live link to project
-[Link to project](https://vue-project-altsch.netlify.app/).
+see project live [Link to project](https://vue-project-altsch.netlify.app/). 
 # altsch-project
