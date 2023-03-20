@@ -4,16 +4,16 @@
     <router-link to="/">Home</router-link>
     <div class="repo-wrap">
       <div v-for="repo in repos" :key="repo.id">
-          <HelloCard v-bind:repository="repo.name">
-            <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
-            <p><span class="title">Url:</span> {{ repo.url }}</p>
-            <p><span class="title">Name:</span> {{ repo.name }}</p>
-            <p><span class="title">ID:</span> {{ repo.id }}</p>
-            <p>
-              <span class="title">Default Branch:</span>
-              {{ repo.default_branch }}
-            </p>
-          </HelloCard>
+        <HelloCard v-bind:repository="repo.name">
+          <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
+          <p><span class="title">Url:</span> {{ repo.url }}</p>
+          <p><span class="title">Name:</span> {{ repo.name }}</p>
+          <p><span class="title">ID:</span> {{ repo.id }}</p>
+          <p>
+            <span class="title">Default Branch:</span>
+            {{ repo.default_branch }}
+          </p>
+        </HelloCard>
       </div>
     </div>
   </div>
@@ -27,26 +27,28 @@ export default {
   data() {
     return {
       repos: [],
+      page: 1,
+      per_page: 6
     };
   },
   methods: {},
   computed: {
     skip() {
-      return this.page * this.PER_PAGE
+      return this.page * this.PER_PAGE;
     },
     indexOfFirstRepo() {
-      return this.skip - this.PER_PAGE
+      return this.skip - this.PER_PAGE;
     },
 
     currentRepos() {
-      return this.repos.slice(this.indexOfFirstRepo, this.skip)
+      return this.repos.slice(this.indexOfFirstRepo, this.skip);
     },
     pages() {
-      return this.repos.length / this.PER_PAGE
-    }, 
+      return this.repos.length / this.PER_PAGE;
+    },
     buttons() {
-      return Array.from({ length: this.pages }, (value, index) => index + 1)
-    }
+      return Array.from({ length: this.pages }, (value, index) => index + 1);
+    },
   },
   mounted() {
     fetch("https://api.github.com/users/bentike/repos")
@@ -54,8 +56,8 @@ export default {
       .then((data) => {
         this.repos = data;
       })
-      .catch(err => console.log('an error occur ' + err));
-  }
+      .catch((err) => console.log("an error occur " + err));
+  },
 };
 </script>
 
