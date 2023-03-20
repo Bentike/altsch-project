@@ -31,7 +31,14 @@ export default {
       per_page: 6
     };
   },
-  methods: {},
+  methods: {
+    nextPage() {
+      this.page += 1;
+    },
+    prevPage() {
+      this.page -= 1;
+    }
+  },
   computed: {
     skip() {
       return this.page * this.per_page;
