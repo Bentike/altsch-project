@@ -25,7 +25,7 @@ const router = createRouter({
       component: SingleRepo,
     },
     {
-      path: "/:pathMatch(.*)*",
+      path: "/:catchAll(.*)",
       name: "NotFound",
       component: NotFound,
     },
