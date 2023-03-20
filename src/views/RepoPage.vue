@@ -3,7 +3,7 @@
     <h1>List of all my github Repositories</h1>
     <router-link to="/">Home</router-link>
     <div class="repo-wrap">
-      <div v-for="repo in repos" :key="repo.id">
+      <div v-for="repo in currentRepos" :key="repo.id">
         <HelloCard v-bind:repository="repo.name">
           <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
           <p><span class="title">Url:</span> {{ repo.url }}</p>
