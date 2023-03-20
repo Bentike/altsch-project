@@ -15,10 +15,10 @@
           </p>
         </HelloCard>
       </div>
-      <div>
-         <button :disabled="page<= 1" @click="prevPage">prev</button>
-         <button  v-for="(num , idx) in buttons" :key="idx" :disabled="page=== num" @click="page = num">{{ num }}</button>
-         <button :disabled="page >= pages" @click="nextPage">next</button>
+      <div class="btn-wrap">
+         <button class="pagination-btn" :disabled="page<= 1" @click="prevPage">prev</button>
+         <button class="pagination-btn"  v-for="(num , idx) in buttons" :key="idx" :disabled="page=== num" @click="page = num">{{ num }}</button>
+         <button class="pagination-btn" :disabled="page >= pages" @click="nextPage">next</button>
       </div>
     </div>
   </div>
@@ -100,5 +100,12 @@ export default {
 }
 p {
   color: #fff;
+}
+.btn-wrap{
+  padding: 20px;
+}
+.pagination-btn{
+  padding: 10px;
+  margin: 10px;
 }
 </style>
