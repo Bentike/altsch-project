@@ -15,6 +15,11 @@
           </p>
         </HelloCard>
       </div>
+      <div>
+         <button :disabled="page<= 1" @click="prevPage">prev</button>
+         <button></button>
+         <button></button>
+      </div>
     </div>
   </div>
 </template>
