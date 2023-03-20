@@ -31,6 +31,7 @@ export default {
   name: "RepoPage",
   data() {
     return {
+      loading: true,
       repos: [],
       page: 1,
       per_page: 6
