@@ -1,8 +1,12 @@
 <template>
   <div class="single">
     <h1>More Details About Repository.</h1>
+    <div>
+      <router-link to="/">Home</router-link> <br /><br />
+      <router-link to="/repo">Repos</router-link>
+    </div>
     <HelloCard>
-      <img :src="owner.avatar_url" alt="owner" class="owner-img"/>
+      <img :src="owner.avatar_url" alt="owner" class="owner-img" />
       <p><span class="title">Owner:</span> {{ owner.login }}</p>
       <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
       <p><span class="title">Url:</span> {{ repo.url }}</p>
@@ -13,8 +17,6 @@
         {{ repo.default_branch }}
       </p>
     </HelloCard>
-    <router-link to="/">Home</router-link> <br /><br />
-    <router-link to="/repo">Repos</router-link>
   </div>
 </template>
 
@@ -28,7 +30,7 @@ export default {
   data() {
     return {
       repo: {},
-      owner: {}
+      owner: {},
     };
   },
 
@@ -46,17 +48,17 @@ export default {
         this.owner = data.owner;
         console.log(this.owner);
       })
-      .catch((err) => console.log('an error occur ' + err));
+      .catch((err) => console.log("an error occur " + err));
   },
 };
 </script>
 
 <style>
-.single{
+.single {
   width: 50%;
   margin: 0 auto;
 }
-.owner-img{
+.owner-img {
   width: 200px;
   height: 200px;
 }
