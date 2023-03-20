@@ -5,7 +5,7 @@
       <router-link to="/">Home</router-link> <br /><br />
       <router-link to="/repo">Repos</router-link>
     </div>
-    <HelloCard>
+    <HelloCard :repository="repo.name">
       <img :src="owner.avatar_url" alt="owner" class="owner-img" />
       <p><span class="title">Owner:</span> {{ owner.login }}</p>
       <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
@@ -46,7 +46,6 @@ export default {
       .then((data) => {
         this.repo = data;
         this.owner = data.owner;
-        console.log(this.owner);
       })
       .catch((err) => console.log("an error occur " + err));
   },
