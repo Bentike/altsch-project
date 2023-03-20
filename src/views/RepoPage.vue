@@ -18,7 +18,7 @@
       <div>
          <button :disabled="page<= 1" @click="prevPage">prev</button>
          <button></button>
-         <button></button>
+         <button :disabled="page >= pages" @click="nextPage">next</button>
       </div>
     </div>
   </div>
