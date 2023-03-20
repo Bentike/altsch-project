@@ -1,7 +1,7 @@
 <template>
   <div class="single">
     <h1>More Details About Repository.</h1>
-    <div>
+    <div class="router-div">
       <router-link to="/">Home</router-link> <br /><br />
       <router-link to="/repo">Repos</router-link>
     </div>
@@ -69,5 +69,11 @@ export default {
 .owner-img {
   width: 200px;
   height: 200px;
+}
+
+.router-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 </style>
