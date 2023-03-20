@@ -16,9 +16,25 @@
         </HelloCard>
       </div>
       <div class="btn-wrap">
-         <button class="pagination-btn" :disabled="page<= 1" @click="prevPage">prev</button>
-         <button class="pagination-btn"  v-for="(num , idx) in buttons" :key="idx" :disabled="page=== num" @click="page = num">{{ num }}</button>
-         <button class="pagination-btn" :disabled="page >= pages" @click="nextPage">next</button>
+        <button class="pagination-btn" :disabled="page <= 1" @click="prevPage">
+          prev
+        </button>
+        <button
+          class="pagination-btn"
+          v-for="(num, idx) in buttons"
+          :key="idx"
+          :disabled="page === num"
+          @click="page = num"
+        >
+          {{ num }}
+        </button>
+        <button
+          class="pagination-btn"
+          :disabled="page >= pages"
+          @click="nextPage"
+        >
+          next
+        </button>
       </div>
     </div>
   </div>
@@ -27,14 +43,14 @@
 <script>
 import HelloCard from "../components/HelloCard.vue";
 export default {
-  components: { HelloCard },
+  components: { HelloCard},
   name: "RepoPage",
   data() {
     return {
-      loading: true,
+      isLoading: true,
       repos: [],
       page: 1,
-      per_page: 6
+      per_page: 6,
     };
   },
   methods: {
@@ -43,7 +59,10 @@ export default {
     },
     prevPage() {
       this.page -= 1;
-    }
+    },
+    setLoadingOff() {
+      this.isLoading = false;
+    },
   },
   computed: {
     skip() {
@@ -70,6 +89,7 @@ export default {
         this.repos = data;
       })
       .catch((err) => console.log("an error occur " + err));
+    this.setLoadingOff();
   },
 };
 </script>
@@ -82,6 +102,7 @@ export default {
   justify-content: space-around;
   background-color: #000;
   padding: 30px;
+  margin-top: 20px;
 }
 .card {
   width: 500px;
@@ -102,10 +123,10 @@ export default {
 p {
   color: #fff;
 }
-.btn-wrap{
+.btn-wrap {
   padding: 20px;
 }
-.pagination-btn{
+.pagination-btn {
   padding: 10px;
   margin: 10px;
 }
