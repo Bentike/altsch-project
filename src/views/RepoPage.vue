@@ -30,6 +30,24 @@ export default {
     };
   },
   methods: {},
+  computed: {
+    skip() {
+      return this.page * this.PER_PAGE
+    },
+    indexOfFirstRepo() {
+      return this.skip - this.PER_PAGE
+    },
+
+    currentRepos() {
+      return this.repos.slice(this.indexOfFirstRepo, this.skip)
+    },
+    pages() {
+      return this.repos.length / this.PER_PAGE
+    }, 
+    buttons() {
+      return Array.from({ length: this.pages }, (value, index) => index + 1)
+    }
+  },
   mounted() {
     fetch("https://api.github.com/users/bentike/repos")
       .then((res) => res.json())
