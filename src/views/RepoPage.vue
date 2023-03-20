@@ -17,7 +17,7 @@
       </div>
       <div>
          <button :disabled="page<= 1" @click="prevPage">prev</button>
-         <button></button>
+         <button  v-for="(num , idx) in buttons" :key="idx" :disabled="page=== num" @click="page = num">{{ num }}</button>
          <button :disabled="page >= pages" @click="nextPage">next</button>
       </div>
     </div>
