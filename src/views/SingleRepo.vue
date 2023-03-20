@@ -2,7 +2,7 @@
   <div class="single">
     <h1>More Details About Repository.</h1>
     <HelloCard>
-      <img v-bind:src="owner.avatar_url" alt="owner" class="owner-img"/>
+      <img :src="owner.avatar_url" alt="owner" class="owner-img"/>
       <p><span class="title">Owner:</span> {{ owner.login }}</p>
       <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
       <p><span class="title">Url:</span> {{ repo.url }}</p>
