@@ -3,38 +3,45 @@
     <h1>List of all my github Repositories</h1>
     <router-link to="/">Home</router-link>
     <div class="repo-wrap">
-      <div v-for="repo in currentRepos" :key="repo.id">
-        <HelloCard :repository="repo.name">
-          <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
-          <p><span class="title">Url:</span> {{ repo.url }}</p>
-          <p><span class="title">Name:</span> {{ repo.name }}</p>
-          <p><span class="title">ID:</span> {{ repo.id }}</p>
-          <p>
-            <span class="title">Default Branch:</span>
-            {{ repo.default_branch }}
-          </p>
-        </HelloCard>
-      </div>
-      <div class="btn-wrap">
-        <button class="pagination-btn" :disabled="page <= 1" @click="prevPage">
-          prev
-        </button>
-        <button
-          class="pagination-btn"
-          v-for="(num, idx) in buttons"
-          :key="idx"
-          :disabled="page === num"
-          @click="page = num"
-        >
-          {{ num }}
-        </button>
-        <button
-          class="pagination-btn"
-          :disabled="page >= pages"
-          @click="nextPage"
-        >
-          next
-        </button>
+      <LoadingComponent :loading="isLoading" />
+      <div class="repo-container" v-if="!isLoading">
+        <div v-for="repo in currentRepos" :key="repo.id">
+          <HelloCard :repository="repo.name">
+            <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
+            <p><span class="title">Url:</span> {{ repo.url }}</p>
+            <p><span class="title">Name:</span> {{ repo.name }}</p>
+            <p><span class="title">ID:</span> {{ repo.id }}</p>
+            <p>
+              <span class="title">Default Branch:</span>
+              {{ repo.default_branch }}
+            </p>
+          </HelloCard>
+        </div>
+        <div class="btn-wrap">
+          <button
+            class="pagination-btn"
+            :disabled="page <= 1"
+            @click="prevPage"
+          >
+            prev
+          </button>
+          <button
+            class="pagination-btn"
+            v-for="(num, idx) in buttons"
+            :key="idx"
+            :disabled="page === num"
+            @click="page = num"
+          >
+            {{ num }}
+          </button>
+          <button
+            class="pagination-btn"
+            :disabled="page >= pages"
+            @click="nextPage"
+          >
+            next
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -42,12 +49,13 @@
 
 <script>
 import HelloCard from "../components/HelloCard.vue";
+import LoadingComponent from "../components/LoadingComponent.vue";
 export default {
-  components: { HelloCard },
+  components: { HelloCard, LoadingComponent},
   name: "RepoPage",
   data() {
     return {
-      isLoading: true,
+      isLoading: false,
       repos: [],
       page: 1,
       per_page: 6,
@@ -59,9 +67,6 @@ export default {
     },
     prevPage() {
       this.page -= 1;
-    },
-    setLoadingOff() {
-      this.isLoading = false;
     },
   },
   computed: {
@@ -83,26 +88,29 @@ export default {
     },
   },
   mounted() {
+    this.isLoading = true;
     fetch("https://api.github.com/users/bentike/repos")
       .then((res) => res.json())
       .then((data) => {
+        this.isLoading = false;
         this.repos = data;
       })
       .catch((err) => console.log("an error occur " + err));
-    this.setLoadingOff();
   },
 };
 </script>
 
 <style>
 .repo-wrap {
+  background-color: #000;
+  padding: 30px;
+  margin-top: 20px;
+}
+.repo-container{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: #000;
-  padding: 30px;
-  margin-top: 20px;
 }
 .card {
   width: 500px;

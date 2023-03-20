@@ -5,32 +5,39 @@
       <router-link to="/">Home</router-link> <br /><br />
       <router-link to="/repo">Repos</router-link>
     </div>
-    <HelloCard :repository="repo.name">
-      <img :src="owner.avatar_url" alt="owner" class="owner-img" />
-      <p><span class="title">Owner:</span> {{ owner.login }}</p>
-      <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
-      <p><span class="title">Url:</span> {{ repo.url }}</p>
-      <p><span class="title">Name:</span> {{ repo.name }}</p>
-      <p><span class="title">ID:</span> {{ repo.id }}</p>
-      <p>
-        <span class="title">Default Branch:</span>
-        {{ repo.default_branch }}
-      </p>
-    </HelloCard>
+    <div>
+      <LoadingComponent :loading="isLoading" />
+    </div>
+    <div v-if="!isLoading">
+      <HelloCard :repository="repo.name">
+        <img :src="owner.avatar_url" alt="owner" class="owner-img" />
+        <p><span class="title">Owner:</span> {{ owner.login }}</p>
+        <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
+        <p><span class="title">Url:</span> {{ repo.url }}</p>
+        <p><span class="title">Name:</span> {{ repo.name }}</p>
+        <p><span class="title">ID:</span> {{ repo.id }}</p>
+        <p>
+          <span class="title">Default Branch:</span>
+          {{ repo.default_branch }}
+        </p>
+      </HelloCard>
+    </div>
   </div>
 </template>
 
 <script>
 import HelloCard from "../components/HelloCard.vue";
+import LoadingComponent from "../components/LoadingComponent.vue";
 export default {
   name: "SingleRepo",
 
-  components: { HelloCard },
+  components: { HelloCard, LoadingComponent },
 
   data() {
     return {
       repo: {},
       owner: {},
+      isLoading: false,
     };
   },
 
@@ -41,9 +48,11 @@ export default {
   },
 
   beforeMount() {
+    this.isLoading = true;
     fetch(`https://api.github.com/repos/Bentike/${this.getRepoName()}`)
       .then((res) => res.json())
       .then((data) => {
+        this.isLoading = false;
         this.repo = data;
         this.owner = data.owner;
       })

@@ -1,5 +1,5 @@
 <template>
-    <div v-if="loading" ></div> 
+    <div v-if="loading" class="loading">Loading...</div> 
  </template>
  
  <script>
@@ -8,3 +8,9 @@
      props: {loading: Boolean},
  }
  </script>
+
+ <style>
+.loading{
+    color: #fff;
+}
+</style>
