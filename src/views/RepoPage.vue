@@ -4,7 +4,7 @@
     <router-link to="/">Home</router-link>
     <div class="repo-wrap">
       <div v-for="repo in currentRepos" :key="repo.id">
-        <HelloCard v-bind:repository="repo.name">
+        <HelloCard :repository="repo.name">
           <p><span class="title">Fullname:</span> {{ repo.full_name }}</p>
           <p><span class="title">Url:</span> {{ repo.url }}</p>
           <p><span class="title">Name:</span> {{ repo.name }}</p>
