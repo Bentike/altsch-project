@@ -34,17 +34,17 @@ export default {
   methods: {},
   computed: {
     skip() {
-      return this.page * this.PER_PAGE;
+      return this.page * this.per_page;
     },
     indexOfFirstRepo() {
-      return this.skip - this.PER_PAGE;
+      return this.skip - this.per_page;
     },
 
     currentRepos() {
       return this.repos.slice(this.indexOfFirstRepo, this.skip);
     },
     pages() {
-      return this.repos.length / this.PER_PAGE;
+      return this.repos.length / this.per_page;
     },
     buttons() {
       return Array.from({ length: this.pages }, (value, index) => index + 1);
