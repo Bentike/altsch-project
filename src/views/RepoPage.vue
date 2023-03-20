@@ -2,7 +2,6 @@
   <div>
     <h1>List of all my github Repositories</h1>
     <router-link to="/">Home</router-link>
-    <LoaderComponent loading="isLoading"/>
     <div class="repo-wrap">
       <div v-for="repo in currentRepos" :key="repo.id">
         <HelloCard :repository="repo.name">
@@ -43,9 +42,8 @@
 
 <script>
 import HelloCard from "../components/HelloCard.vue";
-import LoaderComponent from "../components/LoaderComponent.vue"
 export default {
-  components: { HelloCard, LoaderComponent},
+  components: { HelloCard },
   name: "RepoPage",
   data() {
     return {
